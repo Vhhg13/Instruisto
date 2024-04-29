@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:src="@drawable/account_circle_24px"
+            app:layout_constraintBottom_toTopOf="@+id/login_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <TextView
+            android:id="@+id/login_text_view"
+            style="@style/TextAppearance.Material3.HeadlineMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            app:layout_constraintBottom_toTopOf="@+id/your_progress_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_picture"/>
+
+        <TextView
+            android:id="@+id/your_progress_text_view"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/word_your_progress"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_text_view"
+            app:layout_constraintBottom_toTopOf="@id/progress_value_text_view"/>
+
+        <TextView
+            android:id="@+id/progress_value_text_view"
+            style="@style/TextAppearance.Material3.HeadlineSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?colorPrimary"
+            android:text="@string/sample_30_percent_done"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/your_progress_text_view"
+            app:layout_constraintBottom_toTopOf="@+id/lessons_progress_bar"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/lessons_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:progress="30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_value_text_view"
+            app:layout_constraintBottom_toTopOf="@+id/flashcards_for_today_text_view"/>
+
+        <TextView
+            android:id="@+id/flashcards_for_today_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="@string/word_flashcards_for_today"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lessons_progress_bar"
+            app:layout_constraintBottom_toTopOf="@+id/flashcards_for_today_progress"/>
+
+        <include layout="@layout/layout_flashcards_for_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/flashcards_for_today_progress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flashcards_for_today_text_view"
+            app:layout_constraintBottom_toTopOf="@+id/moon_icon"/>
+
+        <ImageView
+            android:id="@+id/moon_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/dark_mode_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flashcards_for_today_progress"
+            app:layout_constraintBottom_toTopOf="@+id/change_password_text_view"/>
+
+        <TextView
+            android:id="@+id/toggle_dark_mode_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/word_dark_mode"
+            style="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintTop_toTopOf="@+id/moon_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/moon_icon"
+            app:layout_constraintStart_toEndOf="@+id/moon_icon"/>
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/dark_mode_toggle_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/moon_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/moon_icon"/>
+
+
+        <TextView
+            android:id="@+id/change_password_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/word_change_password"
+            android:paddingVertical="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dark_mode_toggle_switch"
+            style="@style/TextAppearance.Material3.TitleLarge"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:title="@string/word_navigation"/>
+    <item
+        android:id="@+id/dest_lesson_list"
+        android:icon="@drawable/assignment_24px"
+        android:title="@string/nav_menu_lessons"/>
+    <item
+        android:id="@+id/dest_decks"
+        android:icon="@drawable/playing_cards_24px"
+        android:title="@string/nav_menu_flashcards"/>
+    <item
+        android:id="@+id/dest_grammar"
+        android:icon="@drawable/description_24px"
+        android:title="@string/nav_menu_grammar"/>
+    <item
+        android:id="@+id/dest_profile"
+        android:icon="@drawable/settings_24px"
+        android:title="@string/nav_menu_settings"/>
+    </group>
+
+</menu>

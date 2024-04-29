@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/dest_login">
+    <fragment
+        android:id="@+id/dest_sign_up"
+        android:name="com.example.instruisto.ui.authorization.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_logInFragment"
+            app:destination="@id/dest_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_login"
+        android:name="com.example.instruisto.ui.authorization.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_signUpFragment"
+            app:destination="@id/dest_sign_up" />
+        <action
+            android:id="@+id/action_dest_login_to_dest_profile"
+            app:destination="@id/dest_profile" />
+    </fragment>
+</navigation>

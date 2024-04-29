@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dest_lesson_list">
+
+    <fragment
+        android:id="@+id/dest_grammar"
+        android:name="com.example.instruisto.ui.grammarlist.GrammarListFragment"
+        android:label="@string/destination_grammar_points" >
+        <action
+            android:id="@+id/action_dest_grammar_to_dest_grammar_point"
+            app:destination="@id/dest_grammar_point" />
+    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/dest_components"-->
+<!--        android:name="com.example.instruisto.ui.ComponentsFragment"-->
+<!--        android:label="UI Components" />-->
+    <fragment
+        android:id="@+id/dest_profile"
+        android:name="com.example.instruisto.ui.profile.ProfileFragment"
+        android:label="@string/word_profile" />
+    <fragment
+        android:id="@+id/dest_decks"
+        android:name="com.example.instruisto.ui.deckslist.DecksListFragment"
+        android:label="@string/word_flashcards" >
+        <action
+            android:id="@+id/action_dest_decks_to_flashcardList"
+            app:destination="@id/dest_flashcard_list" />
+        <action
+            android:id="@+id/action_dest_decks_to_reviewFlashcardsFragment"
+            app:destination="@id/dest_review" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_lesson_list"
+        android:name="com.example.instruisto.ui.lessonlist.LessonListFragment"
+        android:label="@string/word_lessons"
+        tools:layout="@layout/fragment_lesson_list" />
+    <fragment
+        android:id="@+id/dest_grammar_point"
+        android:name="com.example.instruisto.ui.grammarpoint.GrammarPointFragment"
+        android:label="@string/word_grammar_point"
+        tools:layout="@layout/fragment_grammar_point" >
+        <argument
+            android:name="grammarPoint"
+            app:argType="com.example.instruisto.model.Lesson$GrammarPoint" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_flashcard_list"
+        android:name="com.example.instruisto.ui.flashcardlist.FlashcardsListFragment"
+        android:label="@string/word_nav_deck"
+        tools:layout="@layout/fragment_flashcard_list" >
+        <argument
+            android:name="deck"
+            app:argType="com.example.instruisto.model.Deck" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_dest_flashcard_list_to_editFlashcardFragment"
+            app:destination="@id/editFlashcardFragment" />
+        <action
+            android:id="@+id/action_dest_flashcard_list_to_reviewFlashcardsFragment"
+            app:destination="@id/dest_review" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFlashcardFragment"
+        android:name="com.example.instruisto.ui.editflashcard.EditFlashcardFragment"
+        android:label="@string/word_edit_flashcard"
+        tools:layout="@layout/fragment_edit_flashcard" >
+        <argument
+            android:name="flashcard"
+            app:argType="com.example.instruisto.model.Flashcard"
+            app:nullable="true" />
+        <argument
+            android:name="deck"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/dest_review"
+        android:name="com.example.instruisto.ui.reviewflashcards.ReviewFlashcardsFragment"
+        android:label="@string/word_review"
+        tools:layout="@layout/fragment_review_flashcards" >
+        <argument
+            android:name="deckId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+</navigation>
