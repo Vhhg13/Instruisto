@@ -19,10 +19,9 @@ class LessonsListAdapter(val data: List<Lesson>, val ctx: Context, val nav: (Lon
                 }
                 lessonNumber.text = ctx.getString(R.string.word_lesson_number_x, item.number)
                 tv.text = ctx.getString(R.string.word_practice)
-                colorView.setBackgroundColor(ctx.getColor(R.color.md_theme_light_primary))
                 tv2.text = ctx.getString(R.string.word_grammar)
-                colorView2.setBackgroundColor(ctx.getColor(R.color.md_theme_light_tertiary))
                 if(isLast) divider.visibility = View.INVISIBLE
+                else divider.visibility = View.VISIBLE
             }
     }
 

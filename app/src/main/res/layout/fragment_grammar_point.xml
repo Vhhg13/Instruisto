@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="@dimen/big_margin"
     tools:context=".ui.grammarpoint.GrammarPointFragment">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="@dimen/big_margin"
         style="@style/TextAppearance.Material3.DisplaySmall"/>
 
     <TextView
