@@ -42,4 +42,15 @@
         <item name="android:textColor">?colorOnErrorContainer</item>
         <item name="backgroundTint">?colorErrorContainer</item>
     </style>
+    <style name="PlanForToday" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="CardInLessonList" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/medium_margin</item>
+        <item name="android:layout_marginHorizontal">@dimen/big_margin</item>
+        <item name="android:clickable">true</item>
+    </style>
 </resources>

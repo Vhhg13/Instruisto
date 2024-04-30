@@ -62,4 +62,5 @@
     <string name="word_correct">Correct!</string>
     <string name="sample_correct_answer">Correct answer:\nA b c d e f</string>
     <string name="word_incorrect">Incorrect!</string>
+    <string name="word_sign_out">Sign out</string>
 </resources>

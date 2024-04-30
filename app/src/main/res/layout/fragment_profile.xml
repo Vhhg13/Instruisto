@@ -127,5 +127,16 @@
             app:layout_constraintTop_toBottomOf="@+id/dark_mode_toggle_switch"
             style="@style/TextAppearance.Material3.TitleLarge"/>
 
+        <TextView
+            android:id="@+id/sign_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/word_sign_out"
+            android:paddingVertical="@dimen/big_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_password_text_view"
+            style="@style/TextAppearance.Material3.TitleLarge"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

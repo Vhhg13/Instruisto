@@ -28,7 +28,9 @@ class LogInFragment : Fragment() {
             //view.findNavController().navigate(R.id.action_dest_login_to_dest_profile)
             activity?.finish()
         }
-
+        view.findViewById<Button>(R.id.cross_button).setOnClickListener {
+            activity?.finish()
+        }
         return view
     }
 

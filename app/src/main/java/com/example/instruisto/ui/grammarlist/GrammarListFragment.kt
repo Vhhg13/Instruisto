@@ -1,10 +1,12 @@
 package com.example.instruisto.ui.grammarlist
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +34,15 @@ class GrammarListFragment : Fragment() {
         val adapter = GrammarListAdapter{ id ->
             val action = GrammarListFragmentDirections.actionDestGrammarToDestGrammarPoint(list.find { it.id == id }!!)
             navController.navigate(action)
+        }
+
+        binding.til.setEndIconOnClickListener {
+            binding.et.text?.clear()
+            requireActivity().getSystemService(InputMethodManager::class.java)
+                .hideSoftInputFromWindow(
+                    binding.root.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
         }
         recycler.adapter = adapter
         adapter.submitList(list)

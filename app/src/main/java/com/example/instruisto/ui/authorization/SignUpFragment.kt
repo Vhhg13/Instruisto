@@ -28,7 +28,9 @@ class SignUpFragment : Fragment() {
         view.findViewById<TextView>(R.id.goto_login_tw).setOnClickListener {
             view.findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
         }
-
+        view.findViewById<Button>(R.id.cross_button).setOnClickListener {
+            activity?.finish()
+        }
         return view
     }
 

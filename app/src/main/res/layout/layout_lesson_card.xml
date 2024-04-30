@@ -15,12 +15,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/practice_card"
-        android:layout_marginBottom="@dimen/medium_margin"
-        android:layout_marginHorizontal="@dimen/big_margin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.Material3.CardView.Elevated"
-        android:clickable="true">
+        style="@style/CardInLessonList">
 
         <TextView
             android:id="@+id/tv"
@@ -42,12 +37,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/grammar_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/medium_margin"
-        android:layout_marginHorizontal="@dimen/big_margin"
-        style="@style/Widget.Material3.CardView.Elevated"
-        android:clickable="true">
+        style="@style/CardInLessonList">
 
         <TextView
             android:id="@+id/tv2"

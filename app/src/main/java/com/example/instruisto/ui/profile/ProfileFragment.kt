@@ -2,6 +2,7 @@ package com.example.instruisto.ui.profile
 
 import android.app.UiModeManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import androidx.core.content.edit
 import com.example.instruisto.App
 import com.example.instruisto.R
 import com.example.instruisto.databinding.FragmentProfileBinding
+import com.example.instruisto.ui.authorization.AuthorizeActivity
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -42,6 +44,9 @@ class ProfileFragment : Fragment() {
             sp.edit {
                 putBoolean("isNight", isNight)
             }
+        }
+        binding.signOut.setOnClickListener {
+            startActivity(Intent(requireActivity(), AuthorizeActivity::class.java))
         }
         return binding.root
     }

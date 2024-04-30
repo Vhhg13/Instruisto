@@ -46,21 +46,19 @@
         app:layout_constraintBottom_toTopOf="@+id/recycler">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/in_contents_chip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/word_in_contents"
-            android:checkable="true"
-            app:checkedIconEnabled="true"
-            app:checkedIcon="@drawable/check_24px"/>
+            style="@style/Widget.Material3.Chip.Filter"/>
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/in_name_chip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/word_in_gpoint_name"
-            android:checkable="true"
-            android:checked="true"
-            app:checkedIconEnabled="true"
-            app:checkedIcon="@drawable/check_24px"/>
+            style="@style/Widget.Material3.Chip.Filter"
+            android:checked="true"/>
 
     </com.google.android.material.chip.ChipGroup>
 
