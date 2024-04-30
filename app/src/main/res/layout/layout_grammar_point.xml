@@ -2,8 +2,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:layout_marginBottom="16dp"
+    android:layout_height="@dimen/card_height"
+    android:layout_marginBottom="@dimen/medium_margin"
     style="@style/Widget.Material3.CardView.Elevated"
     android:clickable="true"
     app:cardBackgroundColor="?colorSurface">
@@ -14,6 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         style="@style/TextAppearance.Material3.TitleMedium"
-        android:padding="16dp"/>
+        android:padding="@dimen/medium_margin"/>
 
 </com.google.android.material.card.MaterialCardView>

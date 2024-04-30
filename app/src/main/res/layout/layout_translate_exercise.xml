@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:drawableStartCompat="@drawable/play_arrow_24px"
-    android:padding="24dp"
-    android:drawablePadding="24dp"
+    android:padding="@dimen/big_margin"
+    android:gravity="start"
+    android:drawablePadding="@dimen/big_margin"
     android:text="@string/sample_sentence"
     style="@style/TextAppearance.Material3.BodyLarge"/>

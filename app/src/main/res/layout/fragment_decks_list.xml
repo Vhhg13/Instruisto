@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="24dp"
-    android:paddingVertical="8dp"
+    android:paddingHorizontal="@dimen/main_padding"
+    android:paddingVertical="@dimen/small_margin"
     tools:context=".ui.deckslist.DecksListFragment">
 
     <include
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_flashcards_button_text"
-        android:layout_marginVertical="24dp"
+        android:layout_marginVertical="@dimen/big_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashcards_for_today"
@@ -51,7 +51,7 @@
         android:id="@+id/search_decks_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="24dp"
+        android:padding="@dimen/big_margin"
         android:src="@drawable/search_24px"
         app:layout_constraintTop_toTopOf="@+id/decks_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/word_decks"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/medium_margin"
         style="@style/TextAppearance.Material3.HeadlineMedium"
         app:layout_constraintTop_toTopOf="@+id/barrier_under_divider"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,8 +84,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="?colorSurface"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/big_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
         android:src="@android:drawable/ic_input_add"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

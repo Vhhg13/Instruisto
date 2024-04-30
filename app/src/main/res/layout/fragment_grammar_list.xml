@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="24dp"
+    android:padding="@dimen/big_margin"
     tools:context=".ui.grammarlist.GrammarListFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:backgroundTint="?colorSurfaceVariant"
             android:layout_height="match_parent"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="@dimen/big_margin"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -40,7 +40,7 @@
         android:id="@+id/chip_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_in"
@@ -69,7 +69,7 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/medium_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
         app:layout_constraintTop_toBottomOf="@+id/chip_group"
