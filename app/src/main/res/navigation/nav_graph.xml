@@ -13,10 +13,6 @@
             android:id="@+id/action_dest_grammar_to_dest_grammar_point"
             app:destination="@id/dest_grammar_point" />
     </fragment>
-<!--    <fragment-->
-<!--        android:id="@+id/dest_components"-->
-<!--        android:name="com.example.instruisto.ui.ComponentsFragment"-->
-<!--        android:label="UI Components" />-->
     <fragment
         android:id="@+id/dest_profile"
         android:name="com.example.instruisto.ui.profile.ProfileFragment"

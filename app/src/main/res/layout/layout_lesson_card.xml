@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.CardView.Elevated"
-        app:cardBackgroundColor="?colorSurface"
         android:clickable="true">
 
         <TextView
@@ -48,7 +47,6 @@
         android:layout_marginBottom="@dimen/medium_margin"
         android:layout_marginHorizontal="@dimen/big_margin"
         style="@style/Widget.Material3.CardView.Elevated"
-        app:cardBackgroundColor="?colorSurface"
         android:clickable="true">
 
         <TextView

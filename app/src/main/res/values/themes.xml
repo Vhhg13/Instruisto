@@ -32,6 +32,8 @@
         <item name="android:windowBackground">?colorSurface</item>
         <item name="android:statusBarColor">?attr/colorSurface</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="colorSurfaceContainerLow">@color/light_card_color</item>
+        <item name="colorSurfaceContainerHighest">@color/md_theme_light_surfaceVariant</item>
     </style>
 
     <style name="Theme.Instruisto" parent="Base.Theme.Instruisto" />
