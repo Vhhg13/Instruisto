@@ -2,6 +2,7 @@ package com.example.instruisto.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.serialization.Serializable
 
 data class Lesson(
     val id: Long,
@@ -9,6 +10,13 @@ data class Lesson(
     val steps: List<Step>,
     val status: Boolean
 ){
+    companion object{
+        const val id = "id"
+        const val exercises = "exercises"
+        const val passed = "passed"
+        const val notPassed = "not passed"
+        const val status = "status"
+    }
     sealed interface Step
     data class Exercise(
         val id: Long,
@@ -42,6 +50,7 @@ data class Lesson(
         }
 
         companion object CREATOR : Parcelable.Creator<GrammarPoint> {
+            const val id = "id"
             override fun createFromParcel(parcel: Parcel): GrammarPoint {
                 return GrammarPoint(parcel)
             }

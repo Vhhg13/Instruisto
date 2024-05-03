@@ -2,9 +2,20 @@ package com.example.instruisto.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.example.instruisto.util.DateSerializer
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import java.util.Date
 
-data class Flashcard(val id: Long, val front: String, val back: String, val nextReview: Date, val imageUrl: String, val deck: Long) : Parcelable{
+@Serializable
+data class Flashcard(
+    val id: Long,
+    val front: String,
+    val back: String,
+    @Serializable(with = DateSerializer::class) val nextReview: Date,
+    val imageUrl: String,
+    val deck: Long
+) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
         parcel.readString()!!,

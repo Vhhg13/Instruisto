@@ -2,6 +2,7 @@ package com.example.instruisto.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.serialization.Serializable
 
 data class Deck(val id: Long, val name: String, val plan: String, val flashcards: List<Flashcard>) : Parcelable {
     constructor(parcel: Parcel) : this(
