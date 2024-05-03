@@ -1,12 +1,9 @@
-package com.example.instruisto.util
+package com.example.instruisto.ui.deckslist
 
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instruisto.R
 import com.example.instruisto.databinding.DeckItemBinding
 import com.example.instruisto.model.Deck
 

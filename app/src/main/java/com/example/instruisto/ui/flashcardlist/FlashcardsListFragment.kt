@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.instruisto.databinding.FragmentFlashcardListBinding
 import com.example.instruisto.model.Flashcard
-import com.example.instruisto.util.FlashcardListAdapter
 import java.util.Date
 
 class FlashcardsListFragment : Fragment() {

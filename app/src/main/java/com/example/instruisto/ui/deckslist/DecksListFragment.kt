@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.instruisto.databinding.FragmentDecksListBinding
 import com.example.instruisto.model.Deck
-import com.example.instruisto.util.DecksListAdapter
 
 class DecksListFragment : Fragment() {
     private lateinit var binding: FragmentDecksListBinding

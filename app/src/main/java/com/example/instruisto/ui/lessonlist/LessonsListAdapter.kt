@@ -1,4 +1,4 @@
-package com.example.instruisto.util
+package com.example.instruisto.ui.lessonlist
 
 import android.content.Context
 import android.view.LayoutInflater

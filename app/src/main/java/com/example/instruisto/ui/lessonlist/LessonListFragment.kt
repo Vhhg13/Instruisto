@@ -6,11 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.instruisto.R
 import com.example.instruisto.databinding.FragmentLessonListBinding
 import com.example.instruisto.model.Lesson
 import com.example.instruisto.ui.lesson.LessonActivity
-import com.example.instruisto.util.LessonsListAdapter
 
 class LessonListFragment : Fragment() {
     lateinit var binding: FragmentLessonListBinding

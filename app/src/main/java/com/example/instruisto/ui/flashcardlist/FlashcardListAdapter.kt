@@ -1,7 +1,6 @@
-package com.example.instruisto.util
+package com.example.instruisto.ui.flashcardlist
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -9,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.instruisto.databinding.LayoutFlashcardInListBinding
 import com.example.instruisto.model.Flashcard
 
-class FlashcardListAdapter(val nav: (Flashcard) -> Unit) : ListAdapter<Flashcard, FlashcardListAdapter.ViewHolder>(DIFF){
+class FlashcardListAdapter(val nav: (Flashcard) -> Unit) : ListAdapter<Flashcard, FlashcardListAdapter.ViewHolder>(
+    DIFF
+){
     class ViewHolder(val binding: LayoutFlashcardInListBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(item: Flashcard, nav: (Flashcard) -> Unit){
             binding.apply {
