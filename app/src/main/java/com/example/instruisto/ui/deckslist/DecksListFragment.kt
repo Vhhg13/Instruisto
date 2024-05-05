@@ -24,7 +24,7 @@ class DecksListFragment : Fragment() {
         val navController = findNavController()
         binding.recycler.adapter = DecksListAdapter(('a'.code .. 'l'.code).map {
             Deck(
-                id = it.toLong(),
+                id = it,
                 name = it.toChar().toString(),
                 plan = "$it/$it/$it",
                 listOf()

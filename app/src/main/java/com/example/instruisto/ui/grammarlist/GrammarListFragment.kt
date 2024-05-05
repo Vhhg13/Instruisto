@@ -23,7 +23,7 @@ class GrammarListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentGrammarListBinding.inflate(layoutInflater, container, false)
         val recycler = binding.recycler
-        val list: List<Lesson.GrammarPoint> = (1L..20).map {
+        val list: List<Lesson.GrammarPoint> = (1..20).map {
             Lesson.GrammarPoint(id = it, name = "Grammar$it", description = "desc$it")
         }
         val navController = findNavController()

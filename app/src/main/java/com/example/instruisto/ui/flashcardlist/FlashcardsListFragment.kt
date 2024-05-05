@@ -33,7 +33,7 @@ class FlashcardsListFragment : Fragment() {
         binding.recycler.adapter = adapter
         adapter.submitList((0..20).map {
             Flashcard(
-                id = it.toLong(),
+                id = it,
                 "a", "b",
                 Date(),
                 "",

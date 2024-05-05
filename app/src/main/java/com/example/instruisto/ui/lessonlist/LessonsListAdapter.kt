@@ -10,9 +10,9 @@ import com.example.instruisto.databinding.LayoutLessonCardBinding
 import com.example.instruisto.model.Lesson
 
 
-class LessonsListAdapter(val data: List<Lesson>, val ctx: Context, val nav: (Long) -> Unit) : RecyclerView.Adapter<LessonsListAdapter.ViewHolder>() {
+class LessonsListAdapter(val data: List<Lesson>, val ctx: Context, val nav: (Int) -> Unit) : RecyclerView.Adapter<LessonsListAdapter.ViewHolder>() {
     class ViewHolder(val binding: LayoutLessonCardBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(ctx: Context, item: Lesson, isLast: Boolean, nav: (Long) -> Unit) =
+        fun bind(ctx: Context, item: Lesson, isLast: Boolean, nav: (Int) -> Unit) =
             binding.apply {
                 practiceCard.setOnClickListener {
                     nav(item.id)

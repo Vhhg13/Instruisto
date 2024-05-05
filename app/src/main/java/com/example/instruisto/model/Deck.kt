@@ -4,9 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.serialization.Serializable
 
-data class Deck(val id: Long, val name: String, val plan: String, val flashcards: List<Flashcard>) : Parcelable {
+data class Deck(val id: Int, val name: String, val plan: String, val flashcards: List<Flashcard>) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readLong(),
+        parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.createTypedArrayList(Flashcard)!!
@@ -14,7 +14,7 @@ data class Deck(val id: Long, val name: String, val plan: String, val flashcards
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeLong(id)
+        parcel.writeInt(id)
         parcel.writeString(name)
         parcel.writeString(plan)
         parcel.writeTypedList(flashcards)

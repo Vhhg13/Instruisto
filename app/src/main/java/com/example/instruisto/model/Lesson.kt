@@ -5,7 +5,7 @@ import android.os.Parcelable
 import kotlinx.serialization.Serializable
 
 data class Lesson(
-    val id: Long,
+    val id: Int,
     val number: Int,
     val steps: List<Step>,
     val status: Boolean
@@ -19,7 +19,7 @@ data class Lesson(
     }
     sealed interface Step
     data class Exercise(
-        val id: Long,
+        val id: Int,
         val type: Type,
         val questionText: String,
         val answerText: String,
@@ -31,16 +31,16 @@ data class Lesson(
             LISTENING
         }
     }
-    data class GrammarPoint(val id: Long, val name: String, val description: String) : Step, Parcelable{
+    data class GrammarPoint(val id: Int, val name: String, val description: String) : Step, Parcelable{
         constructor(parcel: Parcel) : this(
-            parcel.readLong(),
+            parcel.readInt(),
             parcel.readString()!!,
             parcel.readString()!!
         ) {
         }
 
         override fun writeToParcel(parcel: Parcel, flags: Int) {
-            parcel.writeLong(id)
+            parcel.writeInt(id)
             parcel.writeString(name)
             parcel.writeString(description)
         }

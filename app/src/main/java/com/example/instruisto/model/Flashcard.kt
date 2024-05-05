@@ -9,7 +9,7 @@ import java.util.Date
 
 @Serializable
 data class Flashcard(
-    val id: Long,
+    val id: Int,
     val front: String,
     val back: String,
     @Serializable(with = DateSerializer::class) val nextReview: Date,
@@ -17,7 +17,7 @@ data class Flashcard(
     val deck: Long
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
-        parcel.readLong(),
+        parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         Date(parcel.readLong()),
@@ -27,7 +27,7 @@ data class Flashcard(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeLong(id)
+        parcel.writeInt(id)
         parcel.writeString(front)
         parcel.writeString(back)
         parcel.writeLong(nextReview.time)

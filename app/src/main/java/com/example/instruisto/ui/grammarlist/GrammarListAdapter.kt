@@ -12,7 +12,7 @@ import com.example.instruisto.model.Lesson
 
 typealias GrammarPoint = Lesson.GrammarPoint
 
-class GrammarListAdapter(val nav: (Long) -> Unit): ListAdapter<GrammarPoint, GrammarListAdapter.ViewHolder>(DIFF) {
+class GrammarListAdapter(val nav: (Int) -> Unit): ListAdapter<GrammarPoint, GrammarListAdapter.ViewHolder>(DIFF) {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
         val textView: TextView = view.findViewById(R.id.point_name)
     }
