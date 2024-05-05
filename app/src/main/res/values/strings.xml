@@ -63,4 +63,8 @@
     <string name="sample_correct_answer">Correct answer:\nA b c d e f</string>
     <string name="word_incorrect">Incorrect!</string>
     <string name="word_sign_out">Sign out</string>
+    <string name="word_lesson_ended">Lesson ended</string>
+    <string name="back_to_lesson_list">To the main page</string>
+    <string name="word_mistakes">Mistakes</string>
+    <string name="word_percentage">Performance</string>
 </resources>

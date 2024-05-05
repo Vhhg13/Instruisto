@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.lesson.EndLessonFragment">
+
+    <TextView
+        android:id="@+id/lesson_ended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_lesson_ended"
+        style="@style/TextAppearance.Material3.DisplayMedium"
+        android:textColor="?colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ver_div"/>
+
+    <TextView
+        android:id="@+id/word_mistakes"
+        android:text="@string/word_mistakes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        app:layout_constraintTop_toTopOf="@+id/ver_div"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ver_div"/>
+
+    <TextView
+        android:id="@+id/number_of_mistakes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        style="@style/TextAppearance.Material3.DisplayLarge"
+        app:layout_constraintBottom_toBottomOf="@+id/ver_div"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ver_div"/>
+
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/ver_div"
+        android:layout_width="1dp"
+        android:layout_height="@dimen/lesson_end_divider"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintTop_toBottomOf="@+id/lesson_ended"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/go_back"/>
+
+    <TextView
+        android:id="@+id/lesson_performance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_percentage"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        app:layout_constraintStart_toEndOf="@+id/ver_div"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ver_div"/>
+
+    <TextView
+        android:id="@+id/performance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Material3.DisplayLarge"
+        android:text="100%"
+        app:layout_constraintBottom_toBottomOf="@+id/ver_div"
+        app:layout_constraintStart_toEndOf="@+id/ver_div"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/go_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_lesson_list"
+        app:layout_constraintTop_toBottomOf="@+id/ver_div"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

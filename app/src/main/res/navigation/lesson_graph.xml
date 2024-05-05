@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lesson_graph.xml"
+    app:startDestination="@id/exerciseFragment">
+
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.example.instruisto.ui.lesson.ExerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" >
+        <action
+            android:id="@+id/action_exerciseFragment_to_inLessonGrammarFragment"
+            app:destination="@id/inLessonGrammarFragment" />
+        <action
+            android:id="@+id/action_exerciseFragment_to_endLessonFragment"
+            app:destination="@id/endLessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inLessonGrammarFragment"
+        android:name="com.example.instruisto.ui.lesson.InLessonGrammarFragment"
+        android:label="fragment_in_lesson_grammar"
+        tools:layout="@layout/fragment_in_lesson_grammar" >
+        <action
+            android:id="@+id/action_inLessonGrammarFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
+        <action
+            android:id="@+id/action_inLessonGrammarFragment_to_endLessonFragment"
+            app:destination="@id/endLessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endLessonFragment"
+        android:name="com.example.instruisto.ui.lesson.EndLessonFragment"
+        android:label="fragment_end_lesson"
+        tools:layout="@layout/fragment_end_lesson" />
+</navigation>

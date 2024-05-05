@@ -9,4 +9,5 @@
     <dimen name="large_margin">32dp</dimen>
     <dimen name="card_height">80dp</dimen>
     <dimen name="xs_margin">4dp</dimen>
+    <dimen name="lesson_end_divider">100dp</dimen>
 </resources>
