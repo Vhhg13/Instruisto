@@ -3,7 +3,9 @@ package com.example.instruisto
 import android.app.Application
 import android.content.Context
 import androidx.core.content.edit
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App: Application() {
     companion object{
         const val SHARED_PREF_NAME = "Instruisto"

@@ -6,9 +6,10 @@ import android.os.SystemClock
 import androidx.navigation.fragment.NavHostFragment
 import com.example.instruisto.R
 import com.example.instruisto.databinding.ActivityAuthorizeBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
-
+@AndroidEntryPoint
 class AuthorizeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
