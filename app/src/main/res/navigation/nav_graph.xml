@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_grammar_point" >
         <argument
             android:name="grammarPoint"
-            app:argType="com.example.instruisto.model.Lesson$GrammarPoint" />
+            app:argType="com.example.instruisto.model.GrammarPoint" />
     </fragment>
     <fragment
         android:id="@+id/dest_flashcard_list"

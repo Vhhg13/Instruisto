@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instruisto.R
-import com.example.instruisto.model.Lesson
 
-typealias GrammarPoint = Lesson.GrammarPoint
+typealias GrammarPoint = com.example.instruisto.model.GrammarPoint
 
 class GrammarListAdapter(val nav: (Int) -> Unit): ListAdapter<GrammarPoint, GrammarListAdapter.ViewHolder>(DIFF) {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){

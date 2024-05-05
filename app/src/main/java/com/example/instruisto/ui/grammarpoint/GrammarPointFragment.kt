@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.instruisto.databinding.FragmentGrammarPointBinding
-import com.example.instruisto.model.Lesson
+import com.example.instruisto.model.GrammarPoint
 
 class GrammarPointFragment : Fragment() {
     val args: GrammarPointFragmentArgs by navArgs()
@@ -21,7 +21,7 @@ class GrammarPointFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         val binding = FragmentGrammarPointBinding.inflate(inflater)
-        val point: Lesson.GrammarPoint = args.grammarPoint
+        val point: GrammarPoint = args.grammarPoint
         binding.title.text = point.name
         binding.description.text = point.description
         return binding.root
