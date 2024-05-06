@@ -14,4 +14,5 @@ data class Lesson(
         const val status = "status"
     }
     sealed interface Step
+    data object End : Step
 }

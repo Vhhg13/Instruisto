@@ -2,10 +2,10 @@ package com.example.instruisto.ui.lessonlist
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.instruisto.databinding.FragmentLessonListBinding
 import com.example.instruisto.model.Lesson
 import com.example.instruisto.ui.lesson.LessonActivity
@@ -25,7 +25,7 @@ class LessonListFragment : Fragment() {
         val recycler = binding.recycler
         recycler.adapter = LessonsListAdapter(listOf(
             Lesson(
-                id = 1,
+                id = 28,
                 number = 1,
                 steps = listOf(),
                 status = true
@@ -49,7 +49,7 @@ class LessonListFragment : Fragment() {
                 status = true
             )
         ), requireActivity().applicationContext){
-            val intent = Intent(requireActivity(), LessonActivity::class.java).putExtra("lesson", it)
+            val intent = Intent(requireActivity(), LessonActivity::class.java).putExtra(LessonActivity.LESSON_EXTRA, it)
             startActivity(intent)
         }
         return binding.root
