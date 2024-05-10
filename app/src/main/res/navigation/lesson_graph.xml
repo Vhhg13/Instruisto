@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lesson_graph"
-    app:startDestination="@id/exerciseFragment">
+    app:startDestination="@id/emptyFragment">
     <action
         android:id="@+id/toExercise"
-        app:destination="@+id/exerciseFragment"/>
+        app:destination="@+id/exerciseFragment"
+        app:popUpTo="@id/lesson_graph"
+        app:popUpToInclusive="false" />
     <action
         android:id="@+id/toGrammar"
-        app:destination="@+id/inLessonGrammarFragment"/>
+        app:destination="@+id/inLessonGrammarFragment"
+        app:popUpTo="@id/lesson_graph"
+        app:popUpToInclusive="false" />
     <action
         android:id="@+id/toEnd"
-        app:destination="@+id/endLessonFragment"/>
+        app:destination="@+id/endLessonFragment"
+        app:popUpTo="@id/lesson_graph"
+        app:popUpToInclusive="false" />
 
     <fragment
         android:id="@+id/exerciseFragment"
@@ -29,4 +35,8 @@
         android:name="com.example.instruisto.ui.lesson.EndLessonFragment"
         android:label="fragment_end_lesson"
         tools:layout="@layout/fragment_end_lesson" />
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="com.example.instruisto.ui.lesson.EmptyFragment"
+        android:label="fragment_empty"/>
 </navigation>

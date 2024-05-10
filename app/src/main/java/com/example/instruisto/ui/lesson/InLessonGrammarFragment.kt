@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.instruisto.databinding.FragmentInLessonGrammarBinding
 import dagger.hilt.android.lifecycle.withCreationCallback
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class InLessonGrammarFragment : Fragment() {
@@ -24,13 +25,6 @@ class InLessonGrammarFragment : Fragment() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.uiState.collect{
-
-                }
-            }
-        }
     }
 
     override fun onCreateView(
@@ -38,6 +32,19 @@ class InLessonGrammarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentInLessonGrammarBinding.inflate(inflater, container, false)
+        observe(viewModel.step){
+            if(it is LessonState.GrammarLessonState){
+                binding.title.text = it.grammarPoint.name
+                binding.description.text = it.grammarPoint.description
+            }
+        }
         return binding.root
+    }
+    private fun <T> observe(flow: StateFlow<T>, block: (T) -> Unit){
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                flow.collect(block)
+            }
+        }
     }
 }

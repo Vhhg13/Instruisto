@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.instruisto.databinding.FragmentEndLessonBinding
 import dagger.hilt.android.lifecycle.withCreationCallback
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class EndLessonFragment : Fragment() {
@@ -24,13 +25,7 @@ class EndLessonFragment : Fragment() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.uiState.collect{
 
-                }
-            }
-        }
     }
 
     override fun onCreateView(
@@ -38,6 +33,21 @@ class EndLessonFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEndLessonBinding.inflate(inflater, container, false)
+        binding.goBack.setOnClickListener { requireActivity().finish() }
+        observe(viewModel.step){
+            if(it is LessonState.EndLessonState){
+                binding.performance.text = it.performance.second.toString()
+                binding.numberOfMistakes.text = "${it.performance.first}%"
+            }
+        }
         return binding.root
+    }
+
+    private fun <T> observe(flow: StateFlow<T>, block: (T) -> Unit){
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                flow.collect(block)
+            }
+        }
     }
 }

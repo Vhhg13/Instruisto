@@ -2,6 +2,7 @@ package com.example.instruisto.data.repo.test
 
 import com.example.instruisto.data.repo.LessonRepository
 import com.example.instruisto.model.Exercise
+import com.example.instruisto.model.GrammarPoint
 import com.example.instruisto.model.Lesson
 import com.example.instruisto.util.Result
 
@@ -11,7 +12,12 @@ class LessonRepositoryTest: LessonRepository {
         val lesson = lessons.find { it.id == id }
         return when(lesson){
             null -> Result.NoSuchId(id)
-            else -> Result.Success(lesson)
+            else -> Result.Success(lesson.copy(steps = buildList {
+                addAll(exercises)
+                add(GrammarPoint(1, "a", "b"))
+                add(GrammarPoint(2, "c", "d"))
+                add(GrammarPoint(3, "e", "f"))
+            }.shuffled()))
         }
     }
 
@@ -32,14 +38,14 @@ class LessonRepositoryTest: LessonRepository {
         Lesson(
             id = 1,
             number = 1,
-            steps = listOf(),
-            status = true
+            status = true,
+            steps = listOf()
         ),
         Lesson(
             id = 2,
             number = 2,
-            steps = listOf(),
-            status = true
+            status = true,
+            steps = listOf()
         ),
         Lesson(
             id = 3,

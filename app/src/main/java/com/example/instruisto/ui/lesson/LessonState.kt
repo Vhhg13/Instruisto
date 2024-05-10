@@ -1,17 +1,18 @@
 package com.example.instruisto.ui.lesson
 
 import com.example.instruisto.model.Exercise
-import com.example.instruisto.model.Lesson
+import com.example.instruisto.model.GrammarPoint
 
-data class LessonState(
-    val step: Lesson.Step = Exercise(
-        id = -69,
-        type = Exercise.Type.TRANSLATION,
-        questionText = "",
-        answerText = "",
-        audioUrl = null
-    ),
-    val progress: Int = 0,
-    val isAnswerCorrect: Boolean? = null,
-    val correctAnswer: String? = null
-)
+sealed interface LessonState {
+    data object ErrorLessonState : LessonState
+
+    data object StartLessonState : LessonState
+
+    data class ExerciseLessonState(val exercise: Exercise) : LessonState
+    data object CorrectLessonState : LessonState
+    data class IncorrectLessonState(val correctAnswer: String) : LessonState
+
+    data class GrammarLessonState(val grammarPoint: GrammarPoint) : LessonState
+
+    data class EndLessonState(val performance: Pair<Int, Int>) : LessonState
+}
