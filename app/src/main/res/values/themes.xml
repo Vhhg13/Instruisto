@@ -26,13 +26,14 @@
         <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
         <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
         <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOutlineVariant">#C4C8BB</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="android:windowBackground">?colorSurface</item>
         <item name="android:statusBarColor">?attr/colorSurface</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorSurfaceContainerLow">@color/light_card_color</item>
+        <item name="colorSurfaceContainerLow">@color/md_theme_light_surfaceContainerLow</item>
         <item name="colorSurfaceContainerHighest">@color/md_theme_light_surfaceVariant</item>
     </style>
 
@@ -46,7 +47,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name="CardInLessonList" parent="Widget.Material3.CardView.Elevated">
+    <style name="CardInLessonList" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">?colorSurfaceContainerLow</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/medium_margin</item>

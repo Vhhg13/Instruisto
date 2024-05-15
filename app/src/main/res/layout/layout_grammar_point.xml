@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
     android:layout_marginBottom="@dimen/medium_margin"
-    style="@style/Widget.Material3.CardView.Elevated"
+    style="@style/Widget.Material3.CardView.Outlined"
+    app:cardBackgroundColor="?colorSurfaceContainerLow"
     android:clickable="true">
 
     <TextView
