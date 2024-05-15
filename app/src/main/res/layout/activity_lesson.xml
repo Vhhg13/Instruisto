@@ -39,6 +39,7 @@
         android:backgroundTint="?colorPrimaryContainer"
         android:textColor="?colorOnPrimaryContainer"
         android:text="@string/word_grammar"
+        android:visibility="invisible"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
