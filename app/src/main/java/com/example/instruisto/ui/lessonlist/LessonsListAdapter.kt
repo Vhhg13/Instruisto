@@ -20,6 +20,8 @@ class LessonsListAdapter(val data: List<Lesson>, val ctx: Context, val nav: (Int
                 lessonNumber.text = ctx.getString(R.string.word_lesson_number_x, item.number)
                 tv.text = ctx.getString(R.string.word_practice)
                 tv2.text = ctx.getString(R.string.word_grammar)
+                practiceCard.isEnabled = item.status
+                grammarCard.isEnabled = item.status
                 if(isLast) divider.visibility = View.INVISIBLE
                 else divider.visibility = View.VISIBLE
             }

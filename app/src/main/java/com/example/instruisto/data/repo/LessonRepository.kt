@@ -7,4 +7,6 @@ interface LessonRepository {
     suspend fun byId(id: Int): Result<Lesson>
     suspend fun all(): List<Lesson>
     suspend fun study(id: Int, status: Boolean): Result<Unit>
+
+    suspend fun progress(): Int
 }

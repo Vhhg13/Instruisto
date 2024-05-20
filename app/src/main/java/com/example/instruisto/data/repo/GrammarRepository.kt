@@ -5,5 +5,5 @@ import com.example.instruisto.util.Result
 
 interface GrammarRepository {
     suspend fun all(): List<GrammarPoint>
-    suspend fun byId(pointId: Int): Result<GrammarPoint>
+    suspend fun byId(point: GrammarPoint): Result<GrammarPoint>
 }

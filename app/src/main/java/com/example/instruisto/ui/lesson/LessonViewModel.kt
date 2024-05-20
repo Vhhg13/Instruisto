@@ -14,6 +14,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.text.Normalizer
 import java.util.LinkedList
 import java.util.Queue
 
@@ -80,8 +81,13 @@ class LessonViewModel @AssistedInject constructor(@Assisted private val lessonId
         }
     }
 
+    private fun compareAnswers(actualAnswer: String, usersAnswer: String) =
+        Normalizer.normalize(usersAnswer.trim().lowercase().replace("ux", "ŭ").replace("x", "\u0302"), Normalizer.Form.NFKD) ==
+                Normalizer.normalize(actualAnswer.trim().lowercase(), Normalizer.Form.NFKD)
+
+
     private fun onExerciseLessonState(e: LessonState.ExerciseLessonState) {
-        val isCorrect = e.exercise.answerText.trim().lowercase() == usersAnswer.trim().lowercase()
+        val isCorrect = compareAnswers(e.exercise.answerText, usersAnswer)
         progressTracker.check(isCorrect)
         if(isCorrect){
             _step.value = LessonState.CorrectLessonState

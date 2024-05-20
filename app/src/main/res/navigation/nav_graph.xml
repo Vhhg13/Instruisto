@@ -16,7 +16,11 @@
     <fragment
         android:id="@+id/dest_profile"
         android:name="com.example.instruisto.ui.profile.ProfileFragment"
-        android:label="@string/word_profile" />
+        android:label="@string/word_profile" >
+        <action
+            android:id="@+id/action_dest_profile_to_dest_lesson_list"
+            app:destination="@id/dest_lesson_list" />
+    </fragment>
     <fragment
         android:id="@+id/dest_decks"
         android:name="com.example.instruisto.ui.deckslist.DecksListFragment"

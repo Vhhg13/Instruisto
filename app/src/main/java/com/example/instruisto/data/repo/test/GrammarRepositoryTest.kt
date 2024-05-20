@@ -7,11 +7,11 @@ import com.example.instruisto.util.Result
 class GrammarRepositoryTest: GrammarRepository {
     override suspend fun all(): List<GrammarPoint> = grammar.map { it.copy(description = "") }
 
-    override suspend fun byId(pointId: Int): Result<GrammarPoint> {
-        val point = grammar.find { it.id == pointId }
-        return when(point){
-            null -> Result.NoSuchId(pointId)
-            else -> Result.Success(point)
+    override suspend fun byId(point: GrammarPoint): Result<GrammarPoint> {
+        val actualPoint = grammar.find { it.id == point.id }
+        return when(actualPoint){
+            null -> Result.NoSuchId(point.id)
+            else -> Result.Success(actualPoint)
         }
     }
 

@@ -2,7 +2,9 @@ package com.example.instruisto.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class GrammarPoint(val id: Int, val name: String, val description: String) : Lesson.Step,
     Parcelable {
     constructor(parcel: Parcel) : this(
@@ -24,6 +26,8 @@ data class GrammarPoint(val id: Int, val name: String, val description: String) 
 
     companion object CREATOR : Parcelable.Creator<GrammarPoint> {
         const val id = "id"
+        const val name = "name"
+        const val description = "description"
         override fun createFromParcel(parcel: Parcel): GrammarPoint {
             return GrammarPoint(parcel)
         }

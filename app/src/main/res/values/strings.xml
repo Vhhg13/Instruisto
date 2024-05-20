@@ -67,4 +67,8 @@
     <string name="back_to_lesson_list">To the main page</string>
     <string name="word_mistakes">Mistakes</string>
     <string name="word_percentage">Performance</string>
+    <string name="word_invalid_username_or_password">Invalid username or password</string>
+    <string name="word_passwords_do_not_match">Passwords do not match</string>
+    <string name="word_username_taken">Username is already taken</string>
+    <string name="progress_percentage">%d%% done</string>
 </resources>

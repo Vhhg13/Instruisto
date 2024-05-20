@@ -73,35 +73,37 @@ class LessonRepositoryTest: LessonRepository {
             type = Exercise.Type.TRANSLATION,
             questionText = "Lingvo internacia",
             answerText = "International language",
-            audioUrl = null
+            audio = null
         ),
         Exercise(
             id = 2,
             type = Exercise.Type.SUBSTITUTION,
             questionText = "_ internacia",
             answerText = "Lingvo",
-            audioUrl = null
+            audio = null
         ),
         Exercise(
             id = 3,
             type = Exercise.Type.LISTENING,
             questionText = "",
             answerText = "Lingvo internacia",
-            audioUrl = ""
+            audio = ""
         ),
         Exercise(
             id = 4,
             type = Exercise.Type.SUBSTITUTION,
             questionText = "Lingvo _",
             answerText = "internacia",
-            audioUrl = ""
+            audio = ""
         ),
         Exercise(
             id = 5,
             type = Exercise.Type.TRANSLATION,
             questionText = "Lingvo internacia",
             answerText = "International language",
-            audioUrl = ""
+            audio = ""
         ),
     )
+
+    override suspend fun progress(): Int = 30
 }

@@ -48,7 +48,7 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
     <style name="CardInLessonList" parent="Widget.Material3.CardView.Outlined">
-        <item name="cardBackgroundColor">?colorSurfaceContainerLow</item>
+<!--        <item name="cardBackgroundColor">?colorSurfaceContainerLow</item>-->
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/medium_margin</item>

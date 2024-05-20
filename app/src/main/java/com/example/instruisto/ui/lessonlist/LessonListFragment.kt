@@ -6,12 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.example.instruisto.data.repo.LessonRepository
 import com.example.instruisto.databinding.FragmentLessonListBinding
-import com.example.instruisto.model.Lesson
 import com.example.instruisto.ui.lesson.LessonActivity
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LessonListFragment : Fragment() {
     lateinit var binding: FragmentLessonListBinding
+    @Inject lateinit var lessons: LessonRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -21,36 +27,13 @@ class LessonListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentLessonListBinding.inflate(inflater)
+        binding = FragmentLessonListBinding.inflate(inflater, container, false)
         val recycler = binding.recycler
-        recycler.adapter = LessonsListAdapter(listOf(
-            Lesson(
-                id = 28,
-                number = 1,
-                steps = listOf(),
-                status = true
-            ),
-            Lesson(
-                id = 2,
-                number = 2,
-                steps = listOf(),
-                status = true
-            ),
-            Lesson(
-                id = 3,
-                number = 3,
-                steps = listOf(),
-                status = true
-            ),
-            Lesson(
-                id = 4,
-                number = 4,
-                steps = listOf(),
-                status = true
-            )
-        ), requireActivity().applicationContext){
-            val intent = Intent(requireActivity(), LessonActivity::class.java).putExtra(LessonActivity.LESSON_EXTRA, it)
-            startActivity(intent)
+        lifecycleScope.launch {
+            recycler.adapter = LessonsListAdapter(lessons.all(), requireActivity().applicationContext){
+                val intent = Intent(requireActivity(), LessonActivity::class.java).putExtra(LessonActivity.LESSON_EXTRA, it)
+                startActivity(intent)
+            }
         }
         return binding.root
     }

@@ -1,21 +1,17 @@
 package com.example.instruisto.ui.authorization
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock
-import androidx.navigation.fragment.NavHostFragment
-import com.example.instruisto.R
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.instruisto.databinding.ActivityAuthorizeBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.random.Random
 
 @AndroidEntryPoint
 class AuthorizeActivity : AppCompatActivity() {
+    val viewModel: AuthorizationViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityAuthorizeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //val navController = binding.authFragmentContainerView.getFragment<NavHostFragment>().navController
-
     }
 }

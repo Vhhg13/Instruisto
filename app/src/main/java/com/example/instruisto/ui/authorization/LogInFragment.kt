@@ -1,37 +1,73 @@
 package com.example.instruisto.ui.authorization
 
+import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.instruisto.R
+import com.example.instruisto.databinding.FragmentLogInBinding
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 class LogInFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var binding: FragmentLogInBinding
+    val viewModel: AuthorizationViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_log_in, container, false)
-        view.findViewById<TextView>(R.id.goto_signup_tw).setOnClickListener {
-            view.findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
+    ): View {
+        binding = FragmentLogInBinding.inflate(inflater, container, false)
+        val navController = findNavController()
+
+        binding.gotoSignupTw.setOnClickListener {
+            viewModel.clearCredentials()
+            navController.navigate(R.id.action_logInFragment_to_signUpFragment)
         }
-        view.findViewById<Button>(R.id.log_in_button).setOnClickListener {
-            //view.findNavController().navigate(R.id.action_dest_login_to_dest_profile)
-            activity?.finish()
+
+        binding.logInButton.setOnClickListener { viewModel.login(
+            binding.loginEt.text.toString(),
+            binding.password1Et.text.toString()
+        ) }
+
+        observe(viewModel.uiState){
+            when(it){
+                AuthorizationViewModel.AuthStatus.USERNAME_TAKEN -> {
+                    binding.pwd1TIL.error = context?.getString(R.string.word_invalid_username_or_password)
+                    binding.pwd1TIL.isErrorEnabled = true
+                }
+                AuthorizationViewModel.AuthStatus.UNMATCHING_PASSWORDS -> throw Exception("Should've been unreachable")
+                AuthorizationViewModel.AuthStatus.SUCCESS -> {
+                    requireActivity().setResult(Activity.RESULT_OK)
+                    requireActivity().finish()
+                }
+                AuthorizationViewModel.AuthStatus.EMPTY -> {
+                    binding.loginTIL.error = ""
+                    binding.loginTIL.isErrorEnabled = false
+                    binding.pwd1TIL.error = ""
+                    binding.pwd1TIL.isErrorEnabled = false
+                    binding.pwd2TIL.error = ""
+                    binding.pwd2TIL.isErrorEnabled = false
+                }
+            }
         }
-        view.findViewById<Button>(R.id.cross_button).setOnClickListener {
-            activity?.finish()
-        }
-        return view
+        return binding.root
     }
 
+    private fun <T> observe(flow: StateFlow<T>, block: (T) -> Unit){
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                flow.collect(block)
+            }
+        }
+    }
 }

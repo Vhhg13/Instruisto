@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.serialization.Serializable
 
+@Serializable
 data class Deck(val id: Int, val name: String, val plan: String, val flashcards: List<Flashcard>) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
