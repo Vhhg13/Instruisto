@@ -22,19 +22,25 @@ class LessonListFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateList()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentLessonListBinding.inflate(inflater, container, false)
-        val recycler = binding.recycler
+        return binding.root
+    }
+
+    private fun updateList(){
         lifecycleScope.launch {
-            recycler.adapter = LessonsListAdapter(lessons.all(), requireActivity().applicationContext){
+            binding.recycler.adapter = LessonsListAdapter(lessons.all(), requireActivity().applicationContext){
                 val intent = Intent(requireActivity(), LessonActivity::class.java).putExtra(LessonActivity.LESSON_EXTRA, it)
                 startActivity(intent)
             }
         }
-        return binding.root
     }
 }

@@ -33,7 +33,10 @@ class EndLessonFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEndLessonBinding.inflate(inflater, container, false)
-        binding.goBack.setOnClickListener { requireActivity().finish() }
+        binding.goBack.setOnClickListener {
+            viewModel.finish()
+            requireActivity().finish()
+        }
         observe(viewModel.step){
             if(it is LessonState.EndLessonState){
                 binding.performance.text = it.performance.second.toString()

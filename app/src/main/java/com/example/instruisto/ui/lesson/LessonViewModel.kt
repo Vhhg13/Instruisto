@@ -97,6 +97,9 @@ class LessonViewModel @AssistedInject constructor(@Assisted private val lessonId
         }
     }
 
+    fun finish() =
+        viewModelScope.launch { lessons.study(lessonId, true) }
+
     private inner class ProgressTracker(private val size: Int){
         private var correct = 0
         private var incorrect = 0
