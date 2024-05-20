@@ -37,7 +37,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/grammar_card"
-        style="@style/CardInLessonList">
+        style="@style/CardInLessonList"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tv2"

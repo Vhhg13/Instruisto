@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instruisto.R
+import com.example.instruisto.model.GrammarPoint
 
-typealias GrammarPoint = com.example.instruisto.model.GrammarPoint
+class GrammarListAdapter(val nav: (GrammarPoint) -> Unit): ListAdapter<GrammarPoint, GrammarListAdapter.ViewHolder>(DIFF) {
 
-class GrammarListAdapter(val nav: (Int) -> Unit): ListAdapter<GrammarPoint, GrammarListAdapter.ViewHolder>(DIFF) {
+
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
         val textView: TextView = view.findViewById(R.id.point_name)
     }
@@ -29,7 +30,11 @@ class GrammarListAdapter(val nav: (Int) -> Unit): ListAdapter<GrammarPoint, Gram
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = getItem(position).name
         holder.view.setOnClickListener {
-            nav(getItem(position).id)
+            nav(getItem(position))
         }
+    }
+
+    operator fun get(id: Int): GrammarPoint{
+        return currentList.find { it.id == id }!!
     }
 }

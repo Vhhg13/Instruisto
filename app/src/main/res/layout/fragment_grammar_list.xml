@@ -74,5 +74,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="top|center_horizontal"
+        android:paddingVertical="@dimen/big_margin"
+        android:visibility="gone"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:text="@string/placeholder_no_grammar_found"
+        app:layout_constraintTop_toBottomOf="@+id/chip_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
