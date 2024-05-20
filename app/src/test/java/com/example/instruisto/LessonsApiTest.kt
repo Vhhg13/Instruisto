@@ -35,8 +35,11 @@ class LessonsApiTest {
 
     val api = rf.create(InstruistoApi::class.java)
 
+    val test = false
+
     private suspend fun signIn(): AuthRequest{
         val req = AuthRequest(AuthApiTest.sampleUser, AuthApiTest.samplePassword)
+        api.register(req)
         token = api.login(req).body()
         return req
     }
@@ -44,7 +47,7 @@ class LessonsApiTest {
     @Test
     fun `should NOT be able to get Lessons list without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act
@@ -57,7 +60,7 @@ class LessonsApiTest {
     @Test
     fun `should be able to retrieve a lesson by Id`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             signIn()
             val lesson: JsonObject = api.getLessons().body()!!.jsonArray[0].jsonObject
@@ -79,7 +82,7 @@ class LessonsApiTest {
     @Test
     fun `should NOT be able to retrieve a lesson by Id without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act
@@ -92,7 +95,7 @@ class LessonsApiTest {
     @Test
     fun `lesson retrieved by id should contain exercises`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             signIn()
             // Arrange
             val lesson: JsonObject = api.getLessons().body()!!.jsonArray[0].jsonObject
@@ -114,7 +117,7 @@ class LessonsApiTest {
     @Test
     fun `lesson status should be changed`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             signIn()
             val lesson: JsonObject = api.getLessons().body()!!.jsonArray[0].jsonObject
@@ -135,7 +138,7 @@ class LessonsApiTest {
     @Test
     fun `should NOT be able to change lesson status without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act

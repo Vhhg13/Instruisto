@@ -20,6 +20,7 @@ class AuthApiTest {
         const val sampleUser = "sampleUser"
         const val samplePassword = "samplePassword"
     }
+    private val test = false
     private fun randomString(len: Int) =
         (0..len).map { Random.nextInt('a'.code, 'z'.code) }.joinToString("")
     var token: String? = null
@@ -38,8 +39,8 @@ class AuthApiTest {
     @Test
     fun `logging in with invalid credentials should throw 401`() {
         runBlocking {
+            if(!test) return@runBlocking
             //Arrange
-            return@runBlocking
             val username = randomString(randomLength)
             val password = randomString(randomLength)
             val req = AuthRequest(username, password)
@@ -53,7 +54,7 @@ class AuthApiTest {
     @Test
     fun `registering twice should throw 409`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             val username = randomString(randomLength)
             val password = randomString(randomLength)
@@ -71,7 +72,7 @@ class AuthApiTest {
     @Test
     fun `unsuccessful log in, then successful registration should let the user log in and get a jwt`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             val username = randomString(randomLength)
             val password = randomString(randomLength)
@@ -93,7 +94,7 @@ class AuthApiTest {
     @Test
     fun `password change should succeed`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             val username = randomString(randomLength)
             val password = randomString(randomLength)
@@ -108,13 +109,14 @@ class AuthApiTest {
 
             // Assert
             assertTrue("Password change did not succeed (${response.code()})", response.code() == 200)
+            api.changePassword(samplePassword)
         }
     }
 
     @Test
     fun `password change without JWT should fail`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act
@@ -125,14 +127,14 @@ class AuthApiTest {
     }
 
     @Test
-    fun `should be able to retrieve all lessons without JWT`(){
+    fun `should NOT be able to retrieve all lessons without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             // Act
             val response = api.getLessons()
             // Assert
-            assertTrue("Wasn't able to retrieve all lessons without JWT (${response.code()})", response.code() == 200)
+            assertTrue("Wasn't able to retrieve all lessons without JWT (${response.code()})", response.code() == 401)
         }
     }
     private suspend fun registerRandomUser(): AuthRequest{
@@ -143,11 +145,11 @@ class AuthApiTest {
     @Test
     fun `should be able to retrieve all lessons with a JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             val req = registerRandomUser()
             token = api.login(req).body()
-            assertTrue("Token turned out to be null", token == null)
+            assertTrue("Token turned out to be null", token != null)
             // Act
             val response = api.getLessons()
             // Assert

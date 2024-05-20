@@ -31,10 +31,12 @@ class GrammarApiTest {
 
     val api = rf.create(InstruistoApi::class.java)
 
+    val test = false
+
     @Test
     fun `should not be able to get the grammar list without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act
@@ -45,39 +47,40 @@ class GrammarApiTest {
     }
     private suspend fun signUp(): AuthRequest{
         val req = AuthRequest(AuthApiTest.sampleUser, AuthApiTest.samplePassword)
+        api.register(req)
         token = api.login(req).body()
         return req
     }
     @Test
     fun `should be able to get the grammar list with a JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             signUp()
             // Act
             val response = api.getGrammar()
             // Assert
-            assertTrue(response.code() == 200)
+            assertTrue("code = ${response.code()}", response.code() == 200)
         }
     }
 
     @Test
     fun `should be able to retrieve grammarpoint by id`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             signUp()
             // Act
             val response = api.getGrammarPoint(1)
             // Assert
-            assertTrue("", response.code() == 200)
+            assertTrue("code = ${response.code()}", response.code() == 200)
         }
     }
 
     @Test
     fun `should NOT be able to retrieve a grammarpoint without JWT`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             token = null
             // Act
@@ -90,13 +93,13 @@ class GrammarApiTest {
     @Test
     fun `should throw 404 when no point with given id`(){
         runBlocking {
-            return@runBlocking
+            if(!test) return@runBlocking
             // Arrange
             signUp()
             // Act
             val response = api.getGrammarPoint(-1)
             // Assert
-            assertTrue("", response.code() == 404 && response.message() == "No such grammar point")
+            assertTrue("${response.code()} ${response.body()}", response.code() == 404 && response.body() == "No such grammar point")
         }
     }
 }

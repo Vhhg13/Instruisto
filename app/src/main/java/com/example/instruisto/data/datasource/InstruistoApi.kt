@@ -4,9 +4,19 @@ import com.example.instruisto.model.AuthRequest
 import com.example.instruisto.model.Flashcard
 import kotlinx.serialization.json.JsonElement
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.PATCH
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface InstruistoApi {
+    companion object{
+        const val BASE_URL = "http://192.168.31.114:3197"
+    }
     @PATCH("/flashcards")
     suspend fun patchCard(@Body card: Flashcard): Response<Unit>
 
